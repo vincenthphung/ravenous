@@ -1,3 +1,4 @@
+// App.js
 import React, { useState } from "react";
 import styles from "./App.module.css";
 
@@ -8,9 +9,10 @@ import Yelp from "../../utils/Yelp";
 const App = () => {
   const [businesses, setBusinesses] = useState([]);
 
-  const searchYelp = async (term, location, sortBy) => {
-    const businesses = await Yelp.search(term, location, sortBy);
-    setBusinesses(businesses);
+  const searchYelp = (term, location, sortBy) => {
+    Yelp.search(term, location, sortBy).then((businesses) => {
+      setBusinesses(businesses);
+    });
   };
 
   return (

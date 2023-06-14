@@ -1,3 +1,4 @@
+// SearchBar.js
 import React, { useState } from "react";
 import styles from "./SearchBar.module.css";
 
@@ -21,6 +22,7 @@ const SearchBar = ({ searchYelp }) => {
 
   const handleSortByChange = (sortByOption) => {
     setSortBy(sortByOption);
+    searchYelp(term, location, sortByOption);
   };
 
   const handleTermChange = (event) => {
@@ -43,9 +45,7 @@ const SearchBar = ({ searchYelp }) => {
         <li
           className={getSortByClass(sortByOptionValue)}
           key={sortByOptionValue}
-          onClick={() => {
-            handleSortByChange(sortByOptionValue);
-          }}
+          onClick={() => handleSortByChange(sortByOptionValue)}
         >
           {sortByOption}
         </li>
