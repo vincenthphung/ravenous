@@ -1,7 +1,12 @@
+const serverUrl = process.env.NODE_ENV === 'production' ? '/api' : 'http://localhost:3000';
+
+
+
+
 const Yelp = {
   search(term, location, sortBy) {
     return fetch(
-      `http://localhost:3000/search?term=${term}&location=${location}&sort_by=${sortBy}`
+      `${serverUrl}/search?term=${term}&location=${location}&sort_by=${sortBy}`
     )
       .then((response) => {
         if (!response.ok) {
