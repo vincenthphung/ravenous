@@ -18,7 +18,7 @@ const Yelp = {
 
         if (jsonResponse.businesses) {
           return jsonResponse.businesses.map((business) => ({
- id: business.id,
+            id: business.id,
             imageSrc: business.image_url,
             name: business.name,
             address: business.location.address1,
