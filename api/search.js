@@ -12,14 +12,14 @@ module.exports = async (req, res) => {
     return;
   }
 
-  const apiKey = process.env.REACT_APP_API_KEY; // Ensure this is set in your Vercel project settings
+  const apikey = process.env.REACT_APP_API_KEY; // Ensure this is set in your Vercel project settings
   const { term, location, sort_by } = req.query;
 
   try {
     const { data } = await axios.get(`https://api.yelp.com/v3/businesses/search`, {
       params: { term, location, sort_by },
       headers: {
-        Authorization: `Bearer ${apiKey}`,
+        Authorization: `Bearer ${apikey}`,
       },
     });
     res.status(200).json(data);
